@@ -2,20 +2,16 @@ package com.example.quanlyxe;
 
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class CarList {
     private static ArrayList<Car> listCars;
-    //    private static SmallCar[] smallcars;
-//    private static Truck[] trucks;
-    private int total;
 
     // ham main de chay chuong trinh
     public static void main(String[] args) {
         int choice;
 
-        listCars = new ArrayList<Car>();
+        listCars = new ArrayList<>();
         Car car1 = new SmallCar(1, 6543, "Vũ Tự Học", 71);
         Car car2 = new Truck(2, 1234, "Đặng Trung Anh", 60, 3);
         Car car3 = new SmallCar(3, 4567, "Vũ Tự Học", 81);
