@@ -44,7 +44,7 @@ public class CarList {
             switch (choice) {
                 case (0) -> System.out.println("thoat ra, Xin cam on");
                 case (1) -> ThemXe();
-                case (2) -> InDSxephi();
+                case (2) -> DSXeHonPhi();
                 case (3) -> Tong(listCars);
                 case (4) -> FindCar(listCars);
                 case (5) -> InDS();
@@ -185,7 +185,7 @@ public class CarList {
     }
 
     //yêu cầu 3
-    public static void InDSxephi() {
+    public static void DSXeHonPhi() {
         Car[] cars = new Car[listCars.size()];
         listCars.toArray(cars);
 
