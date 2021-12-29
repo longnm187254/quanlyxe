@@ -14,7 +14,7 @@ public class CarList {
         listCars = new ArrayList<>();
         Car car1 = new SmallCar(1, 6543, "Vũ Tự Học", 71);
         Car car2 = new Truck(2, 1234, "Đặng Trung Anh", 60, 3);
-        Car car3 = new SmallCar(3, 4567, "Vũ Tự Học", 81);
+        Car car3 = new SmallCar(3, 4567, "Nguyễn Mạnh Long", 81);
 
         listCars.add(car1);
         listCars.add(car2);
