@@ -49,20 +49,6 @@ public class CarList {
 
 ///// CAC YEU CAU CUA DE BAI//////
 
-    ///0. in DAnh SAch
-    public static void InDS() {
-        Car[] cars = new Car[listCars.size()];
-        listCars.toArray(cars);
-        if (cars.length == 0) {
-            System.out.println("chua co xe nao");
-        } else {
-            for (int i = 0; i < cars.length; i++) {
-                System.out.println("Xe so " + (i + 1) + ":");
-                cars[i].InThongTin();
-                System.out.println(cars[i].PriceInt);
-            }
-        }
-    }
 
     //1.Them xe oto
     public static void ThemXe() {
@@ -70,54 +56,54 @@ public class CarList {
 
         Scanner scanner = new Scanner(System.in);
         do {
-            System.out.println("Nhap loai xe:");
+            System.out.println("Nhập loại xe");
             System.out.println("1.Xe con");
-            System.out.println("2.Xe tai");
+            System.out.println("2.Xe tải");
             choice = scanner.nextInt();
         } while (choice != 1 && choice != 2);
 
         if (choice == 1) {
-            System.out.println("Nhap ID:");
+            System.out.println("nhập ID:");
             int ID = scanner.nextInt();
 
             scanner.nextLine();
 
-            System.out.println("Nhap bien so xe:");
+            System.out.println("Nhập biển số xe:");
             int CarNum = scanner.nextInt();
 
             scanner.nextLine();
 
-            System.out.println("Nhap chu xe:");
+            System.out.println("Nhập tên chủ xe:");
             String CarOwner = scanner.nextLine();
 
-            System.out.println("nhap nam muon xe duoc trong:");
-            int year = scanner.nextInt();
+            System.out.println("nhập tháng muốn xe được trông:");
+            int month = scanner.nextInt();
 
-            SmallCar newsmallcar = new SmallCar(ID,CarNum, CarOwner, year);
+            SmallCar newsmallcar = new SmallCar(ID,CarNum, CarOwner, month);
             listCars.add(newsmallcar);
 
 
         }
         if (choice == 2) {
-            System.out.println("Nhap ID:");
+            System.out.println("Nhập ID:");
             int ID = scanner.nextInt();
 
             scanner.nextLine();
 
-            System.out.println("Nhap bien so xe:");
+            System.out.println("nhập biển số xe:");
             int CarNum = scanner.nextInt();
 
             scanner.nextLine();
 
-            System.out.println("Nhap chu xe:");
+            System.out.println("Nhập chủ xe");
             String CarOwner = scanner.nextLine();
 
-            System.out.println("nhap nam muon xe duoc trong:");
-            int year = scanner.nextInt();
+            System.out.println("Nhập tháng muốn được trông:");
+            int month = scanner.nextInt();
 
-            System.out.println("Nhap trong tai:");
+            System.out.println("nhập trọng tải(đv:tấn):");
             int weight = scanner.nextInt();
-            Truck newtruck = new Truck(ID,CarNum, CarOwner, year, weight);
+            Truck newtruck = new Truck(ID,CarNum, CarOwner, month, weight);
             listCars.add(newtruck);
         }
     }
@@ -201,6 +187,21 @@ public class CarList {
             if(cars[i].PriceCalculate() > phi){
                 System.out.println("Xe so " + (i + 1) + ":");
                 cars[i].InThongTin();
+            }
+        }
+    }
+
+    ///0. in DAnh SAch
+    public static void InDS() {
+        Car[] cars = new Car[listCars.size()];
+        listCars.toArray(cars);
+        if (cars.length == 0) {
+            System.out.println("chua co xe nao");
+        } else {
+            for (int i = 0; i < cars.length; i++) {
+                System.out.println("Xe so " + (i + 1) + ":");
+                cars[i].InThongTin();
+                System.out.println(cars[i].PriceInt);
             }
         }
     }
