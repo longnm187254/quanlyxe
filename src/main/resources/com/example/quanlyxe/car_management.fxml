@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?scenebuilder-background-color 0x00ffa3ff?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="897.0" prefWidth="1161.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanlyxe.controller">
+    <children>
+        <TableView id="CarManage" fx:id="CarManage" layoutX="350.0" layoutY="25.0" onMouseClicked="#rowClicked" prefHeight="434.0" prefWidth="797.0">
+            <columns>
+                <TableColumn fx:id="IDcar" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="CarType" prefWidth="89.0" text="Loại xe" />
+                <TableColumn fx:id="CarNum" minWidth="0.0" prefWidth="93.0" text="Biển số xe" />
+                <TableColumn fx:id="CarOwner" prefWidth="133.0" text="Chủ xe" />
+                <TableColumn fx:id="Time" prefWidth="125.0" text="Thời gian đăng ký" />
+                <TableColumn fx:id="weight" prefWidth="86.0" text="Trọng Tải" />
+                <TableColumn fx:id="Price" prefWidth="198.0" text="Tiền trả mỗi tháng" />
+
+            </columns>
+        </TableView>
+        <VBox layoutX="41.0" layoutY="84.0" prefHeight="286.0" prefWidth="278.0">
+            <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nhập ID" />
+            <TextField fx:id="IDinput" promptText="ID xe" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Chọn loại xe" />
+                <ChoiceBox fx:id="ChoiceType" prefWidth="150.0" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nhập số xe" wrappingWidth="146.0" />
+                <TextField fx:id="CarNuminput" promptText="Số xe" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nhập Chủ Xe" wrappingWidth="95.65234375" />
+                <TextField fx:id="CarOwnerinput" promptText="Chủ sở hữu" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="chọn số tháng muốn đăng ký" wrappingWidth="161.607421875" />
+            <TextField fx:id="Monthinput" promptText="thời gian muốn đăng ký" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Trọng tải(chỉ cho xe tải)" wrappingWidth="159.712890625" />
+                <TextField fx:id="weightinput" prefHeight="26.0" prefWidth="255.0" promptText="trọng tải(đơn vị tấn)" />
+                <Button fx:id="Add" mnemonicParsing="false" onAction="#Add" prefHeight="33.0" prefWidth="70.0" text="thêm" />
+            </children>
+        </VBox>
+        <Button fx:id="Delete" layoutX="705.0" layoutY="459.0" mnemonicParsing="false" onAction="#Delete" prefHeight="32.0" prefWidth="55.0" text="xóa" />
+        <Button layoutX="760.0" layoutY="459.0" mnemonicParsing="false" onAction="#change" prefHeight="32.0" prefWidth="62.0" text="Sửa" />
+      <Text layoutX="41.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quản lý xe" wrappingWidth="374.13671875">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#188edd" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+         <font>
+            <Font size="54.0" />
+         </font>
+      </Text>
+      <TableView fx:id="Findtable" layoutX="17.0" layoutY="658.0" prefHeight="228.0" prefWidth="1130.0">
+        <columns>
+          <TableColumn fx:id="FindID" prefWidth="61.0" text="ID" />
+          <TableColumn fx:id="FindCarType" prefWidth="89.0" text="Loại xe" />
+            <TableColumn fx:id="FindCarNum" prefWidth="117.0" text="Biển số xe" />
+            <TableColumn fx:id="FindCarOwner" prefWidth="271.0" text="Chủ xe" />
+            <TableColumn fx:id="FindTime" prefWidth="154.0" text="Thời gian đăng ký" />
+            <TableColumn fx:id="Findweight" prefWidth="117.0" text="Trọng tải" />
+            <TableColumn fx:id="FindPrice" prefWidth="318.0" text="Tiền trả mỗi tháng" />
+        </columns>
+      </TableView>
+      <TextField fx:id="FindOwner" layoutX="118.0" layoutY="575.0" />
+      <Text layoutX="24.0" layoutY="556.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tìm Kiếm">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#072561" />
+                  <Stop color="#082561b0" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Text>
+      <Text layoutX="41.0" layoutY="592.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Theo chủ xe" />
+      <Text layoutX="296.0" layoutY="592.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Theo Biển số xe" />
+      <TextField fx:id="FindNum" layoutX="395.0" layoutY="575.0" />
+      <Text layoutX="565.0" layoutY="592.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Theo Loại xe" />
+      <ChoiceBox fx:id="FindChoice" layoutX="657.0" layoutY="575.0" prefWidth="150.0" />
+      <Text layoutX="885.0" layoutY="568.0" strokeType="OUTSIDE" strokeWidth="0.0" text="xe có phí trông giữ hàng tháng lớn hơn một số:" wrappingWidth="277.607421875" />
+      <TextField fx:id="inputCompare" layoutX="921.0" layoutY="575.0" prefHeight="25.0" prefWidth="162.0" />
+      <Button fx:id="namebutton" layoutX="157.0" layoutY="611.0" mnemonicParsing="false" onAction="#FindName" prefHeight="16.0" prefWidth="70.0" text="Tìm kiếm" />
+      <Button fx:id="numberbutton" layoutX="436.0" layoutY="611.0" mnemonicParsing="false" onAction="#FindOwner" prefHeight="25.0" prefWidth="66.0" text="Tìm kiếm" />
+      <Button fx:id="typebutton" layoutX="699.0" layoutY="611.0" mnemonicParsing="false" onAction="#FindType" prefHeight="25.0" prefWidth="66.0" text="Tìm kiếm" />
+      <Button fx:id="lmaobutton" layoutX="978.0" layoutY="611.0" mnemonicParsing="false" onAction="#FindCompare" prefHeight="25.0" prefWidth="70.0" text="Tìm kiếm" />
+      <Text layoutX="41.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tính Tổng">
+         <font>
+            <Font size="25.0" />
+         </font>
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0" startX="0.7857142857142857">
+               <stops>
+                  <Stop color="#281566" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Text>
+      <Text layoutX="45.0" layoutY="416.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nhập thời gian(tháng)" wrappingWidth="119.12939453125" />
+      <TextField fx:id="countMonth" layoutX="164.0" layoutY="399.0" prefHeight="25.0" prefWidth="83.0" />
+      <TextArea fx:id="Sum" layoutX="140.0" layoutY="478.0" prefHeight="26.0" prefWidth="131.0" />
+      <Button layoutX="40.0" layoutY="424.0" mnemonicParsing="false" onAction="#Sum" text="Calculate" />
+      <Text layoutX="45.0" layoutY="495.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tổng thu nhâp là:" />
+    </children>
+</Pane>
