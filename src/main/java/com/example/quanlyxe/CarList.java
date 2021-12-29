@@ -16,6 +16,13 @@ public class CarList {
         int choice;
 
         listCars = new ArrayList<Car>();
+        Car car1 = new SmallCar(1, 6543, "Vũ Tự Học", 71);
+        Car car2 = new Truck(2, 1234, "Đặng Trung Anh", 60, 3);
+        Car car3 = new SmallCar(3, 4567, "Vũ Tự Học", 81);
+
+        listCars.add(car1);
+        listCars.add(car2);
+        listCars.add(car3);
 
 
         Scanner scanner = new Scanner(System.in);
@@ -41,6 +48,8 @@ public class CarList {
                 case (3) -> Tong(listCars);
                 case (4) -> FindCar(listCars);
                 case (5) -> InDS();
+                case (6) -> EditCar();
+                case (7) -> Delete();
             }
 
         } while (choice != 0);
@@ -79,7 +88,7 @@ public class CarList {
             System.out.println("nhập tháng muốn xe được trông:");
             int month = scanner.nextInt();
 
-            SmallCar newsmallcar = new SmallCar(ID,CarNum, CarOwner, month);
+            Car newsmallcar = new SmallCar(ID, CarNum, CarOwner, month);
             listCars.add(newsmallcar);
 
 
@@ -103,7 +112,7 @@ public class CarList {
 
             System.out.println("nhập trọng tải(đv:tấn):");
             int weight = scanner.nextInt();
-            Truck newtruck = new Truck(ID,CarNum, CarOwner, month, weight);
+            Car newtruck = new Truck(ID, CarNum, CarOwner, month, weight);
             listCars.add(newtruck);
         }
     }
@@ -119,13 +128,14 @@ public class CarList {
 
 
         double Tong = 0;
-        for (int j = 0; j < cars.length; j++) {
-            Tong += cars[j].getPrice();
+        for (Car car : cars) {
+            Tong += car.getPrice();
         }
         Tong = Tong * month;
         System.out.println("Tong: " + Tong);
     }
-//Find CAr
+
+    //Find CAr
     public static void FindCar(ArrayList<Car> list) {
         Car[] cars = new Car[listCars.size()];
         list.toArray(cars);
@@ -146,9 +156,9 @@ public class CarList {
             System.out.println(" Nhap ten nguoi so huu ");
             name = sc.nextLine();
 
-            for (int i = 0; i < cars.length; i++) {
-                if (name.equals(cars[i].getCarOwner())) {
-                    cars[i].InThongTin();
+            for (Car car : cars) {
+                if (name.equals(car.getCarOwner())) {
+                    car.InThongTin();
                 }
             }
         }
@@ -156,9 +166,9 @@ public class CarList {
             System.out.println(" Nhap bien so xe ");
             numberCar = sc.nextInt();
 
-            for (int i = 0; i < cars.length; i++) {
-                if (numberCar == cars[i].getCarNumber()) {
-                    cars[i].InThongTin();
+            for (Car car : cars) {
+                if (numberCar == car.getCarNumber()) {
+                    car.InThongTin();
                 }
             }
         }
@@ -166,9 +176,9 @@ public class CarList {
             System.out.println(" Nhap loai xe ");
             type = sc.nextLine();
 
-            for (int i = 0; i < cars.length; i++) {
-                if (type.equals(cars[i].getTypeCar())) {
-                    cars[i].InThongTin();
+            for (Car car : cars) {
+                if (type.equals(car.getTypeCar())) {
+                    car.InThongTin();
                 }
             }
         }
@@ -184,7 +194,7 @@ public class CarList {
         double phi = scanner.nextInt();
 
         for (int i = 0; i < cars.length; i++) {
-            if(cars[i].PriceCalculate() > phi){
+            if (cars[i].PriceCalculate() > phi) {
                 System.out.println("Xe so " + (i + 1) + ":");
                 cars[i].InThongTin();
             }
@@ -206,4 +216,49 @@ public class CarList {
         }
     }
 
+    public static void Delete() {
+        InDS();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Chọn ID của xe muốn bị xóa");
+        int ID = sc.nextInt();
+        listCars.removeIf(car -> ID == car.getID());
+    }
+
+    public static void EditCar() {
+
+        InDS();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Chọn ID của xe muốn bị xóa");
+        int ID = scanner.nextInt();
+
+        for (Car car : listCars) {
+            if (car.getID() == ID) {
+
+                System.out.println("nhập biển số xe muốn sửa:");
+                int CarNum = scanner.nextInt();
+                car.setCarNumber(CarNum);
+
+                scanner.nextLine();
+
+                System.out.println("Nhập chủ xe muốn sửa");
+                String CarOwner = scanner.nextLine();
+                car.setCarOwner(CarOwner);
+
+                System.out.println("Nhập tháng muốn được trông muốn sửa:");
+                int month = scanner.nextInt();
+                car.setMonth(month);
+                car.setDate(car.DateConvert());
+
+                System.out.println("nhập trọng tải(đv:tấn) muốn sửa:");
+                int weight = scanner.nextInt();
+                car.setWeight(weight);
+
+                car.setPriceInt((int) car.PriceCalculate());
+                System.out.println("Cập nhật thành công");
+
+
+            }
+
+        }
+    }
 }

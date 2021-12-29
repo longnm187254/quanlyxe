@@ -2,6 +2,8 @@ package com.example.quanlyxe;
 
 public class Truck extends Car {
     private final static int HeSoTien = 700000;
+    public Truck() {
+    }
 
     public Truck(int ID,int carNumber, String carOwner, int month, int weight) {
         super(ID,carNumber, carOwner, month);
@@ -13,17 +15,6 @@ public class Truck extends Car {
 
 
 
-    }
-
-    public Truck(int carNumber,String carOwner,int weight){
-        super(carNumber,carOwner);
-        this.weight = weight;
-        setTypeCar("Xe tải");
-        this.Price= PriceCalculate();
-
-    }
-
-    public Truck() {
     }
 
     public int getWeight() {
@@ -52,7 +43,7 @@ public class Truck extends Car {
     public void InThongTin() {
         System.out.println("ID:"+getID()+"||Loai xe:" + getTypeCar() + "||Bien So Xe:" + getCarNumber() +
                 "||Chu xe:" + getCarOwner() + " " +
-                "||nam duoc trong:" + getMonth() + " " +
+                "||thoi gian duoc trong:" + getDate() + " " +
                 "||trong tai:" + getWeight() + " " +
                 "||Tien:" + PriceCalculate());
     }

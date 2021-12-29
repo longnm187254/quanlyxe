@@ -18,7 +18,6 @@ public class SmallCar extends Car {
 
     }
 
-
     public SmallCar() {
     }
 
@@ -44,7 +43,7 @@ public class SmallCar extends Car {
     public void InThongTin() {
         System.out.println("ID:"+getID()+"||Loai xe:" + getTypeCar() + "||Bien so Xe:" + getCarNumber() +
                 "||Chu xe:" + getCarOwner() + " " +
-                "||nam duoc trong:" + getMonth() + " " +
+                "||thoi gian duoc trong:" + getDate() + " " +
                 "||Tien:" + PriceCalculate());
     }
 }
